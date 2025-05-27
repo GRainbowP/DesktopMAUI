@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DekstopMAUI.MainPage">
+             x:Class="DekstopMAUI.MainPage"
+             BackgroundColor="LightSteelBlue">
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
+            Padding="50"
             Spacing="25">
 
-            <HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="25">
                 <VerticalStackLayout Spacing="25">
-                    <Label Text="Dane pracownika"/>
+                    <Label Text="Dane pracownika" FontSize="Title"/>
                     <HorizontalStackLayout>
                         <Label Text="Imię" />
-                        <Entry />
+                        <Entry x:Name="FirstName" />
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout>
                         <Label Text="Nazwisko" />
-                        <Entry />
+                        <Entry x:Name="LastName" />
                     </HorizontalStackLayout>
 
                     <HorizontalStackLayout>
-                        <Picker x:Name="picker"
-                                Title="Stanowisko">
+                        <Picker x:Name="PickerRole" Title="Stanowisko">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>Kierownik</x:String>
@@ -34,9 +34,37 @@
                             </Picker.ItemsSource>
                         </Picker>
                     </HorizontalStackLayout>
+                </VerticalStackLayout>
 
+                <VerticalStackLayout Margin="100" />
+
+                <VerticalStackLayout Spacing="25">
+                    <Label Text="Generowanie hasła" FontSize="Title" />
+                        <HorizontalStackLayout>
+                            <Label Text="Ile znaków?" />
+                            <Entry x:Name="HowManyChars" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="SmallAndBigLetters" IsChecked="True" />
+                            <Label x:Name="eeee" Text="Małe i wielkie litery" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="Numbers" />
+                            <Label Text="Cyfry" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <CheckBox x:Name="SpecialLetters" />
+                            <Label Text="Znaki specjalne" />
+                        </HorizontalStackLayout>
+
+                        <Button x:Name="GeneratePass" Clicked="GeneratePass_Clicked" Text="Generuj hasło" BackgroundColor="SteelBlue" TextColor="White" />
                 </VerticalStackLayout>
             </HorizontalStackLayout>
+
+            <Button x:Name="ConfirmButton" Clicked="ConfirmButton_Clicked" Text="Zatwierdź" BackgroundColor="SteelBlue" TextColor="White"  />
         </VerticalStackLayout>
     </ScrollView>
 
